@@ -4,6 +4,9 @@
 
 # Hace referencia a todas las variables disponibles en el ámbito global
 // $GLOBALS
+
+// var_dump($GLOBALS);
+
 $number1 = 3;
 
 function calculate() {
@@ -25,10 +28,11 @@ calculate();
 // $_REQUEST
 // $_ENV
 
-// var_dump($GLOBALS);
+
 $test = "Content";
 var_dump($_POST);
 
 // echo $argc;
 // echo $argv;
 
+// https://www.php.net/manual/es/language.variables.php
