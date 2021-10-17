@@ -1,6 +1,7 @@
 <?php
 
 require_once('class/Person.php');
+require_once('class/Encapsulation.php');
 
 $personOne = new Person("STEVEEN", "Echeverri", 23);
 
@@ -23,3 +24,15 @@ echo "Nombre completo: " . $personTwo->name .' '. $personTwo->lastname . "\n";
 
 var_dump($personOne);
 var_dump($personThree);
+
+$object = new Encapsulation;
+
+echo $object->public;
+
+/* echo $object->protected;
+echo $object->private; */
+
+$object->printWelcome();
+
+$newObject = new ExtendsEncap;
+$newObject->printWelcome();
