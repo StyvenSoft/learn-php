@@ -36,3 +36,4 @@ $object->printWelcome();
 
 $newObject = new ExtendsEncap;
 $newObject->printWelcome();
+
