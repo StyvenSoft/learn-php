@@ -46,6 +46,40 @@ $estatura = 1.75;
 $es_estudiante = true;
 $frutas = array("manzana", "naranja", "plátano");
 
+// Definir un array con corchetes y asignarle valores
+
+$frutasDos = ["Pera", "Piña", "Durazno"];
+
+// Recorremos el array con un bucle for
+for($i= 0; $i < count($frutasDos); $i++ ) {
+    echo $frutasDos[$i]."\n";
+}
+echo "\n";
+
+// Definir un array vacío y luego añadir valores con la función array_push():
+
+$frutasTres = array();
+
+array_push($frutasTres, "Cereza", "Zandia", "Mora");
+
+// Recorremos el array con un bucle foreach
+foreach($frutasTres as $fruta) {
+    echo $fruta."\n";
+}
+echo "\n";
+
+// Definir un array asociativo, donde las claves son cadenas de texto:
+
+$edades = ["Juan" => 21, "Marta" => 23, "Lucas" => 25];
+
+// Definir un array multidimensional, donde cada elemento es a su vez otro array:
+
+$alumnos = [
+    ["nombre" => "Dario", "Edad" => 24, "Genero" => "M"],
+    ["nombre" => "Diana", "Edad" => 21, "Genero" => "F"],
+    ["nombre" => "Marcos", "Edad" => 22, "Genero" => "M"],
+];
+
 echo $nombre."\n";
 echo $edad."\n";
 echo $estatura."\n";
