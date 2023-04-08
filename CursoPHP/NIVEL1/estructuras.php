@@ -1,6 +1,6 @@
 <?php
 
-/*	1. Condicionales  */
+/*	1. Condicionales y operadores lógicos */
 // Ejemplo de condicional "elseif":
 
 $nota = 85;
@@ -12,6 +12,42 @@ if ($nota >= 90) {
 } else {
     echo "Reprobado"."\n";
 }
+
+// Operador AND (&&):
+
+$edad = 25;
+$genero = "masculino";
+
+// Verificar si la edad es mayor a 18 y el género es masculino
+if ($edad > 18 && $genero == "masculino") {
+    echo "Eres un hombre adulto". "\n";
+} else {
+    echo "No eres un hombre adulto". "\n";
+}
+
+// Operador OR (||):
+
+$tiene_auto = true;
+$tiene_moto = false;
+
+// Verificar si tiene un auto o una moto
+if ($tiene_auto || $tiene_moto) {
+    echo "Tiene vehículo". "\n";
+} else {
+    echo "No tiene vehículo". "\n";
+}
+
+// Operador NOT (!):
+
+$es_estudiante = true;
+
+// Verificar si NO es estudiante
+if (!$es_estudiante) {
+    echo "No es estudiante". "\n";
+} else {
+    echo "Es estudiante". "\n";
+}
+
 
 // La instrucción switch en PHP se utiliza para realizar una evaluación de múltiples caso
 // Ejemplo de condicional "switch":
@@ -102,8 +138,71 @@ foreach ($frutas as $fruta) {
     echo $fruta . "\n";
 }
 
+// 3. Manipulación de cadenas de caracteres
 
-//	3. Inclusión de archivos 
+// Extracción de subcadenas:
+
+$texto = "Hola, mundo!";
+
+// Extracción de una subcadena usando la función substr()
+// para extraer una subcadena del texto
+
+$subcadena = substr($texto, 0, 5);
+echo $subcadena. "\n"; // Imprime "Hola,"
+
+// Reemplazo de palabras:
+
+$texto = "La casa es roja.";
+
+// Reemplazo de una palabra usando la función str_replace()
+// para reemplazar la palabra "roja" por "azul" 
+
+$texto_modificado = str_replace("roja", "azul", $texto);
+echo $texto_modificado. "\n"; // Imprime "La casa es azul."
+
+// Conversión a mayúsculas/minúsculas:
+
+$texto = "Hola, bienvenidos!";
+
+// Conversión a mayúsculas usando la función strtoupper()
+$texto_mayusculas = strtoupper($texto);
+echo $texto_mayusculas. "\n"; // Imprime "HOLA, BIENDENIDOS!"
+
+// Conversión a minúsculas usando la función strtolower()
+$texto_minusculas = strtolower($texto);
+echo $texto_minusculas. "\n"; // Imprime "hola, bienvenidos!"
+
+// 4. Trabajo con fechas y tiempos
+
+// Obtener la fecha y hora actual:
+
+// Obtener la fecha y hora actual
+$fecha_actual = date("Y-m-d H:i:s");
+echo $fecha_actual. "\n"; // Imprime la fecha y hora actual en el formato "Y-m-d H:i:s"
+
+// Convertir una fecha en formato de texto a objeto DateTime
+$fecha_texto = "2023-04-01";
+$fecha_objeto = DateTime::createFromFormat("Y-m-d", $fecha_texto);
+echo $fecha_objeto->format("d/m/Y"). "\n"; // Imprime la fecha en el formato "d/m/Y"
+
+
+// Sumar o restar días a una fecha
+$fecha_actual = new DateTime();
+$intervalo = new DateInterval("P3D"); // Sumar 3 días
+$fecha_futura = $fecha_actual->add($intervalo);
+echo "Fecha futura: ". $fecha_futura->format("Y-m-d"). "\n"; // Imprime la fecha futura en el formato "Y-m-d"
+
+
+// Calcular la diferencia entre dos fechas
+$fecha1 = new DateTime("2023-03-31");
+$fecha2 = new DateTime("2023-04-07");
+// la función diff() para calcular la diferencia entre las dos fechas y obtener un objeto DateInterval
+$diferencia = $fecha1->diff($fecha2);
+// Imprime la diferencia en días entre las dos fechas
+echo $diferencia->days . " días de diferencia". "\n"; 
+
+
+//	5. Inclusión de archivos 
 
 // Hay dos formas principales de incluir archivos en PHP: include y require.
 
