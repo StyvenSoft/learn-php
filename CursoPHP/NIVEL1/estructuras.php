@@ -318,5 +318,77 @@ $areaCirculo = calcularAreaCirculo2($radioUsuario);
 // Mostrar el resultado
 echo "El área del círculo con radio " . $radioUsuario . " es: " . $areaCirculo."\n";
 
+// Ejercicios de prácticas de programación estructurada
 
+// Juego de adivinar un número
+
+/* Crea un programa en PHP que genere un número aleatorio entre un rango de números, y 
+permita al usuario adivinar el número. El programa debe dar pistas al usuario 
+si el número adivinado es mayor o menor que el número generado, y contar el 
+número de intentos realizados hasta que el usuario adivine correctamente el número. */
+
+
+// Generar un número aleatorio entre 1 y 20
+$numeroGenerado = rand(1, 20);
+
+// Inicializar el contador de intentos en 0
+$intentos = 0;
+
+// Bucle para permitir al usuario adivinar el número
+do {
+    $intentos++;
+    $adivinanza = readline("Adivina el número (entre 1 y 20): ");
+    if ($adivinanza < $numeroGenerado) {
+        echo "El número es mayor. Intento número $intentos.\n";
+    } elseif ($adivinanza > $numeroGenerado) {
+        echo "El número es menor. Intento número $intentos.\n";
+    }
+} while ($adivinanza != $numeroGenerado);
+
+// Mostrar mensaje de felicitaciones y el número de intentos
+echo "¡Felicidades! Adivinaste el número $numeroGenerado en $intentos intentos.\n";
+
+// Gestor de tareas:
+
+/* Crea un programa en PHP que permita al usuario agregar, editar, eliminar y listar tareas. 
+Las tareas pueden ser almacenadas en un archivo o en una base de datos, y el 
+programa debe ofrecer una interfaz de línea de comandos o una interfaz web para 
+interactuar con las tareas. */
+
+$tareas = array();
+
+function agregarTarea($tarea) {
+    global $tareas;
+    $tareas[] = $tarea;
+}
+
+function editarTarea($indice, $nuevaTarea) {
+    global $tareas;
+    if (isset($tareas[$indice])) {
+        $tareas[$indice] = $nuevaTarea;
+    }
+}
+
+function eliminarTarea($indice) {
+    global $tareas;
+    if (isset($tareas[$indice])) {
+        unset($tareas[$indice]);
+    }
+}
+
+function listarTareas() {
+    global $tareas;
+    echo "Lista de tareas:\n";
+    foreach ($tareas as $indice => $tarea) {
+        echo "$indice: $tarea\n";
+    }
+}
+
+// Ejemplo de uso de las funciones
+agregarTarea("Comprar leche");
+agregarTarea("Pasear al perro");
+listarTareas();
+editarTarea(0, "Comprar pan");
+eliminarTarea(1);
+listarTareas();
 
