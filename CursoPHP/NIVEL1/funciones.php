@@ -82,3 +82,39 @@ $radio = 7;
 $area = calcularAreaCirculo($radio);
 echo "El área del círculo con radio: $radio es: $area"."\n";
 
+// 2. Funciones predefinidas
+
+// array_reduce(): Esta función se utiliza para reducir los valores de 
+// un arreglo a un solo valor mediante una función definida por el usuario.
+
+$numeros = [1, 2, 3, 4, 5];
+
+$sumaArray = array_reduce($numeros, function($acumulado, $numero){
+    return $acumulado + $numero;
+}, 0);
+
+echo "El total de la suma es: " . $sumaArray."\n";
+
+$productos = [
+    'producto1' => [
+        'nombre' => 'Zapatos',
+        'precio' => 60000
+    ],
+    'producto2' => [
+        'nombre' => 'Pantalón',
+        'precio' => 50000
+    ],
+    'producto3' => [
+        'nombre' => 'Camisa',
+        'precio' => 40000
+    ],
+];
+
+function mostrarProductos($valor, $clave) {
+    echo "$clave: $valor\n";
+}
+
+array_walk_recursive($productos, 'mostrarProductos');
+
+
+
