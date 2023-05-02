@@ -95,6 +95,9 @@ $sumaArray = array_reduce($numeros, function($acumulado, $numero){
 
 echo "El total de la suma es: " . $sumaArray."\n";
 
+// array_walk_recursive(): Esta función se utiliza para iterar de forma recursiva 
+// sobre un arreglo y aplicar una función definida a cada uno de sus elementos.
+
 $productos = [
     'producto1' => [
         'nombre' => 'Zapatos',
@@ -116,5 +119,56 @@ function mostrarProductos($valor, $clave) {
 
 array_walk_recursive($productos, 'mostrarProductos');
 
+// Generar contraseñas
+
+//  random_bytes() para generar una cadena de bytes aleatorios y luego 
+// utilizar la función base64_encode() para convertirla en una cadena de texto legible
+
+function generar_passwords($longitud) {
+    $byte = random_bytes($longitud);
+    // substr() es una función predefinida en PHP que se utiliza 
+    // para obtener una parte de una cadena de caracteres.
+    return substr(base64_encode($byte), 0, $longitud);
+}
+
+$password = generar_passwords(8);
+
+echo "Contraseña generada: ". $password . "\n";
+
+
+//  array_map() permite aplicar una función a cada elemento de un array y 
+// devolver un nuevo array con los resultados
+
+// Funcion para elevar una cadena de numeros al cuadrado
+
+function cuadrado($numero) {
+    return pow($numero, 2);
+}
+
+$arrayNum = [2, 4, 6, 8];
+
+$resultado = array_map('cuadrado', $arrayNum);
+
+print_r($resultado);
+echo "\n";
+
+//  array_filter() permite filtrar los elementos de un array según 
+// una función de devolución de llamada
+
+function pares($numero) {
+    return $numero % 2 == 0;
+}
+
+$array_numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+$result = array_filter($array_numeros, 'pares');
+
+print_r($result);
+
+// Todas las categorias de funciones predefinidas
+
+// $ start www.php.net
+
+// https://www.php.net/manual/es/funcref.php
 
 
